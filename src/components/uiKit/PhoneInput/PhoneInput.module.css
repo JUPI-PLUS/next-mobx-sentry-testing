@@ -1,0 +1,4 @@
+.chevron_down {
+    background-image: url("./icons/downChevron.svg");
+    min-width: 24px !important;
+}

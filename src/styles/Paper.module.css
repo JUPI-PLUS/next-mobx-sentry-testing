@@ -1,0 +1,23 @@
+@page {
+    margin: 0;
+}
+
+/** Paper sizes **/
+.A8 {
+    width: 52mm;
+    height: 32mm;
+}
+.A9 {
+    width: 50mm;
+    height: 40mm;
+}
+
+/** Fix for Chrome issue #273306 **/
+@media print {
+    .A8 {
+        width: 52mm;
+    }
+    .A9 {
+        width: 50mm;
+    }
+}

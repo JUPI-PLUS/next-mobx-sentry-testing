@@ -1,0 +1,6 @@
+export const MIN_SAMPLE_NUMBER_LENGTH = 10;
+export const MAX_SAMPLE_NUMBER_LENGTH = 14;
+
+export const MIN_ORDER_NUMBER_LENGTH = 9;
+
+export const MAX_ORDER_NUMBER_VALUE = 999999999;

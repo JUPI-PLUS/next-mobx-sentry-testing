@@ -1,0 +1,12 @@
+export enum PatientProfileTabEnum {
+    GENERAL_INFO,
+    ROLES,
+    DEPRECATED_ORDERS_AND_EXAMS,
+    EMERGENCY_CONTACTS,
+    ADDRESS,
+    CONTACTS,
+    DOCUMENTS,
+    INSURE,
+    FAMILY_TIES,
+    ATTENDING_DOCTORS,
+}

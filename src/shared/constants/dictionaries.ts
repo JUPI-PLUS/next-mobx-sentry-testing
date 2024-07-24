@@ -1,0 +1,1 @@
+export const DEFAULT_GENERAL_STATUS_ID = 1;

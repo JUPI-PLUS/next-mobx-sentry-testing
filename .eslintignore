@@ -1,0 +1,5 @@
+src/serviceWorker.ts
+src/**/__tests__/**
+# TreeView is deprecated
+src/components/TreeView/**
+src/lib/**

@@ -1,0 +1,92 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "prettier",
+    "plugin:storybook/recommended"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "jest",
+    "import",
+    "eslint-mobx-plugin"
+  ],
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "rules": {
+    "eslint-mobx-plugin/missing-observer": "error",
+    "eslint-mobx-plugin/unconditional-make-observable": "error",
+    "eslint-mobx-plugin/missing-make-observable": "error",
+    "prettier/prettier": [
+      "error"
+    ],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-expressions": [
+      "warn",
+      {
+        "allowShortCircuit": true
+      }
+    ],
+    "react/display-name": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/destructuring-assignment": [
+      "error",
+      "always",
+      {
+        "ignoreClassFields": true
+      }
+    ],
+    "react/state-in-constructor": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/aria-role": 0,
+    "no-nested-ternary": "warn",
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "react/no-array-index-key": "warn",
+    "consistent-return": 0,
+    "radix": 0,
+    "no-console": "error",
+    "no-debugger": "error"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  }
+}

@@ -1,0 +1,758 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+@layer base {
+    html,
+    body {
+        font-family: Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+            Droid Sans, Helvetica Neue, sans-serif;
+        @apply font-sans;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#__next {
+    height: 100%;
+    background: rgba(246, 248, 250, 1);
+}
+
+.break-word {
+    word-break: break-word;
+}
+
+/* Scrollbar */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none !important; /* for Chrome, Safari, and Opera */
+    height: 0 !important;
+    width: 0 !important;
+    background: transparent !important;
+    -webkit-appearance: none !important;
+}
+
+/* Input type=number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari */
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+/* Select */
+.select {
+    @apply text-md;
+}
+
+.select .react-select__placeholder {
+    @apply text-dark-800;
+}
+
+.select .react-select__control {
+    @apply shadow-none rounded-lg border border-inset border-dark-600 border-none min-h-10 pb-px h-full;
+}
+
+.select .react-select__control:hover {
+    @apply border-dark-600 cursor-pointer;
+}
+
+.select .has-value .react-select__control {
+    @apply outline outline-2 outline-brand-200 border-transparent !important;
+}
+
+.select .react-select__control--is-disabled {
+    @apply border border-dark-600 bg-dark-100;
+}
+
+.select .react-select__control--is-focused {
+    @apply border shadow-none border-dark-900 !important;
+}
+
+.select .react-select__value-container {
+    @apply py-0 pl-4;
+}
+
+.select .react-select__control--is-disabled .react-select__single-value {
+    @apply text-dark-700;
+}
+
+.select .react-select__single-value {
+    @apply text-dark-900 text-md font-medium;
+}
+
+.select .react-select__menu-list {
+    @apply py-3;
+}
+
+.select .react-select__option {
+    @apply px-5;
+}
+
+.select .react-select__option--is-selected {
+    @apply bg-dark-400 text-dark-900 active:bg-dark-400;
+}
+
+.select.has-error .react-select__control {
+    @apply border border-red-100;
+}
+
+/* Datepicker */
+.date-picker .rdp-caption {
+    @apply mb-5;
+}
+
+.date-picker .rdp-caption_label {
+    @apply text-sm;
+}
+
+.date-picker .rdp-nav {
+    @apply flex w-8 h-8;
+}
+
+.date-picker .rdp-nav .rdp-nav_button {
+    @apply flex w-6 h-6;
+}
+
+.date-picker .rdp-table {
+    @apply max-w-full m-auto;
+}
+
+.date-picker .rdp-month {
+    @apply w-full;
+}
+
+.date-picker .rdp-cell {
+    @apply w-[57px] h-12;
+}
+
+.date-picker .rdp-button {
+    @apply max-w-full w-full h-12 flex items-center justify-center border-none text-sm;
+}
+
+.date-picker .rdp-button.rdp-day {
+    border: none;
+    @apply bg-transparent rounded-none;
+}
+
+.date-picker .rdp-button:hover:not([aria-disabled="true"]),
+.date-picker .rdp-button:focus:not([aria-disabled="true"]) {
+    @apply border-none bg-transparent;
+}
+
+.date-picker .rdp-button:hover:not([aria-disabled="true"]).rdp-day_selected {
+    @apply bg-transparent;
+}
+
+.date-picker .rdp-button:focus:not([aria-disabled="true"]) {
+    @apply border-none bg-transparent;
+}
+
+.date-picker .rdp-day_selected:focus:not([aria-disabled="true"]) {
+    @apply border-none;
+}
+
+.date-picker .rdp-button > span {
+    @apply w-12 h-12 rounded-full flex items-center justify-center;
+}
+
+.date-picker .rdp-button.rdp-day_selected:hover:not([aria-disabled="true"]) > span {
+    @apply bg-brand-200;
+}
+
+.date-picker .rdp-button:hover:not([aria-disabled="true"]) > span {
+    @apply bg-brand-100-1 rounded-full;
+}
+
+.date-picker .rdp-button.rdp-day_selected > span {
+    @apply bg-brand-100;
+}
+
+.date-picker .rdp-day_selected.rdp-day_range_middle {
+    @apply bg-dark-200 hover:bg-dark-400;
+}
+
+.date-picker .rdp-button.rdp-day_selected:hover:not([aria-disabled="true"]).rdp-day_range_middle > span {
+    @apply bg-dark-200 hover:bg-dark-400 rounded-none w-full;
+}
+
+.date-picker .rdp-day_selected.rdp-day_range_middle > span {
+    @apply bg-transparent text-dark-900;
+}
+
+.date-picker .rdp-day_selected.rdp-day_range_start > span,
+.date-picker .rdp-day_selected.rdp-day_range_end > span {
+    @apply hover:bg-brand-200;
+}
+
+.date-picker .rdp-day_selected:not([aria-disabled="true"]).rdp-day_range_end.rdp-day_range_start,
+.date-picker .rdp-day_selected:not([aria-disabled="true"]).rdp-day_range_end.rdp-day_range_start:hover,
+.date-picker .rdp-day_selected:not([aria-disabled="true"]).rdp-day_range_end.rdp-day_range_start:focus {
+    background: transparent;
+}
+
+.rdp-day_selected:not([aria-disabled="true"]).rdp-day_range_start,
+.rdp-day_selected:not([aria-disabled="true"]).rdp-day_selected.rdp-day_range_start:hover,
+.rdp-day_selected:focus:not([aria-disabled="true"]).rdp-day_selected.rdp-day_range_start {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(7, 23, 48, 0.06) 50%);
+}
+
+.rdp-day_selected:not([aria-disabled="true"]).rdp-day_selected.rdp-day_range_end,
+.rdp-day_selected:not([aria-disabled="true"]).rdp-day_selected.rdp-day_range_end:hover,
+.rdp-day_selected:focus:not([aria-disabled="true"]).rdp-day_selected.rdp-day_range_end {
+    background: linear-gradient(90deg, rgba(7, 23, 48, 0.06) 50%, rgba(255, 255, 255, 1) 50%);
+}
+
+/* Tab */
+.tab {
+    @apply relative transition py-[1.325rem] cursor-pointer flex items-center justify-center text-[0.9375rem] font-medium shrink-0;
+}
+
+.tab:after {
+    content: "";
+    @apply absolute bottom-0 w-full border-b-2 border-gray-400 opacity-0;
+}
+
+.tab:hover:after {
+    @apply opacity-100;
+}
+
+.activeTab:after {
+    @apply opacity-100 border-brand-100;
+}
+
+.activeTab:hover:after {
+    @apply border-gray-400;
+}
+
+div[data-popper-reference-hidden="true"] {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+:root {
+    /* toastify */
+    --toastify-color-warning: #fe9c55 !important;
+    --toastify-color-success: #39b983 !important;
+    --toastify-color-error: #e83e50 !important;
+    /* international phone input */
+    --react-international-phone-height: 2.5rem;
+    --react-international-phone-text-color: rgba(7, 23, 48, 1);
+    --react-international-phone-border-color: rgba(7, 23, 48, 0.32);
+    --react-international-phone-font-size: 15px;
+    --react-international-phone-border-radius: 0.5rem;
+    --react-international-phone-disabled-background-color: rgba(7, 23, 48, 0.04);
+    --react-international-phone-disabled-text-color: rgba(7, 23, 48, 0.48);
+    /* international phone selector */
+    --react-international-phone-country-selector-border-color: rgba(7, 23, 48, 0.32);
+    --react-international-phone-selected-dropdown-item-background-color: rgba(7, 23, 48, 0.04);
+    --react-international-phone-disabled-country-selector-background-color: rgba(7, 23, 48, 0.04);
+    --react-international-phone-country-selector-background-color-hover: rgba(7, 23, 48, 0.04);
+}
+
+.Toastify__toast-container .Toastify__toast {
+    border-radius: 8px;
+    padding: 0;
+    width: 448px;
+}
+
+.Toastify__toast-container .Toastify__toast-body {
+    padding: 16px 24px;
+}
+
+/* react-quill */
+.quill .ql-editor {
+    @apply resize-y max-h-80 min-h-32 text-md leading-5;
+}
+
+.quill .ql-editor::-webkit-resizer {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2211%22%20viewBox%3D%220%200%2011%2011%22%20fill%3D%22none%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M8.94145%200L0%208.94049L1.0606%2010.0012L10.002%201.06072L8.94145%200ZM8.94144%204.96694L4.96747%208.94049L6.02807%2010.0012L10.002%206.02766L8.94144%204.96694Z%22%20fill%3D%22%231E1F26%22%20fill-opacity%3D%220.24%22%2F%3E%0A%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+}
+
+.quill .ql-editor--disabled {
+    @apply bg-dark-100 text-dark-700;
+}
+
+.quill .ql-editor--disabled .ql-toolbar {
+    @apply hidden;
+}
+
+.quill .ql-editor--disabled .ql-container {
+    @apply border-t;
+}
+
+.quill .ql-container.ql-snow {
+    @apply rounded-b-md;
+}
+
+.quill .ql-toolbar.ql-snow {
+    @apply rounded-t-md;
+}
+
+.quill .ql-snow .ql-stroke {
+    /* rgba in color dark-700 effects badly so it was replaced with full-opacity hex-color */
+    stroke: #878f9b;
+}
+
+.quill .ql-snow .ql-fill {
+    /* rgba in color dark-700 effects badly so it was replaced with full-opacity hex-color */
+    fill: #878f9b;
+}
+
+.quill .ql-toolbar.ql-snow .ql-formats::after {
+    @apply w-[1px] h-3 rounded-sm bg-dark-500 inline-block align-middle ml-4;
+}
+
+.quill .ql-toolbar.ql-snow .ql-formats:last-child::after {
+    @apply hidden;
+}
+
+.border-inset {
+    border-style: inset;
+}
+
+.outline-inset {
+    outline-style: inset;
+}
+
+/* Rich text */
+.rich-text-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.rich-text-output p,
+.rich-text-output ol,
+.rich-text-output ul,
+.rich-text-output pre,
+.rich-text-output blockquote,
+.rich-text-output h1,
+.rich-text-output h2,
+.rich-text-output h3,
+.rich-text-output h4,
+.rich-text-output h5,
+.rich-text-output h6 {
+    margin: 0;
+    padding: 0;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol,
+.rich-text-output ul {
+    padding-left: 1.5em;
+}
+.rich-text-output ol > li,
+.rich-text-output ul > li {
+    list-style-type: none;
+}
+.rich-text-output ul > li::before {
+    content: "\2022";
+}
+.rich-text-output li::before {
+    display: inline-block;
+    white-space: nowrap;
+    width: 1.2em;
+}
+.rich-text-output ol li {
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-increment: list-0;
+}
+.rich-text-output ol li:before {
+    content: counter(list-0, decimal) ". ";
+}
+.rich-text-output ol li.ql-indent-1 {
+    counter-increment: list-1;
+}
+.rich-text-output ol li.ql-indent-1:before {
+    content: counter(list-1, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-1 {
+    counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-2 {
+    counter-increment: list-2;
+}
+.rich-text-output ol li.ql-indent-2:before {
+    content: counter(list-2, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-2 {
+    counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-3 {
+    counter-increment: list-3;
+}
+.rich-text-output ol li.ql-indent-3:before {
+    content: counter(list-3, decimal) ". ";
+}
+.rich-text-output ol li.ql-indent-3 {
+    counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-4 {
+    counter-increment: list-4;
+}
+.rich-text-output ol li.ql-indent-4:before {
+    content: counter(list-4, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-4 {
+    counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-5 {
+    counter-increment: list-5;
+}
+.rich-text-output ol li.ql-indent-5:before {
+    content: counter(list-5, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-5 {
+    counter-reset: list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-6 {
+    counter-increment: list-6;
+}
+.rich-text-output ol li.ql-indent-6:before {
+    content: counter(list-6, decimal) ". ";
+}
+.rich-text-output ol li.ql-indent-6 {
+    counter-reset: list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-7 {
+    counter-increment: list-7;
+}
+.rich-text-output ol li.ql-indent-7:before {
+    content: counter(list-7, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-7 {
+    counter-reset: list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-8 {
+    counter-increment: list-8;
+}
+.rich-text-output ol li.ql-indent-8:before {
+    content: counter(list-8, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-8 {
+    counter-reset: list-9;
+}
+.rich-text-output ol li.ql-indent-9 {
+    counter-increment: list-9;
+}
+.rich-text-output ol li.ql-indent-9:before {
+    content: counter(list-9, decimal) ". ";
+}
+.rich-text-output .ql-indent-1.ql-direction-rtl.ql-align-right {
+    padding-right: 3em;
+}
+.rich-text-output li.ql-indent-1.ql-direction-rtl.ql-align-right {
+    padding-right: 4.5em;
+}
+.rich-text-output .ql-indent-2.ql-direction-rtl.ql-align-right {
+    padding-right: 6em;
+}
+.rich-text-output li.ql-indent-2.ql-direction-rtl.ql-align-right {
+    padding-right: 7.5em;
+}
+.rich-text-output .ql-indent-3.ql-direction-rtl.ql-align-right {
+    padding-right: 9em;
+}
+.rich-text-output li.ql-indent-3.ql-direction-rtl.ql-align-right {
+    padding-right: 10.5em;
+}
+.rich-text-output .ql-indent-4.ql-direction-rtl.ql-align-right {
+    padding-right: 12em;
+}
+.rich-text-output li.ql-indent-4.ql-direction-rtl.ql-align-right {
+    padding-right: 13.5em;
+}
+.rich-text-output .ql-indent-5.ql-direction-rtl.ql-align-right {
+    padding-right: 15em;
+}
+.rich-text-output li.ql-indent-5.ql-direction-rtl.ql-align-right {
+    padding-right: 16.5em;
+}
+.rich-text-output .ql-indent-6.ql-direction-rtl.ql-align-right {
+    padding-right: 18em;
+}
+.rich-text-output li.ql-indent-6.ql-direction-rtl.ql-align-right {
+    padding-right: 19.5em;
+}
+.rich-text-output .ql-indent-7.ql-direction-rtl.ql-align-right {
+    padding-right: 21em;
+}
+.rich-text-output li.ql-indent-7.ql-direction-rtl.ql-align-right {
+    padding-right: 22.5em;
+}
+.rich-text-output .ql-indent-8.ql-direction-rtl.ql-align-right {
+    padding-right: 24em;
+}
+.rich-text-output li.ql-indent-8.ql-direction-rtl.ql-align-right {
+    padding-right: 25.5em;
+}
+.rich-text-output .ql-indent-9.ql-direction-rtl.ql-align-right {
+    padding-right: 27em;
+}
+.rich-text-output li.ql-indent-9.ql-direction-rtl.ql-align-right {
+    padding-right: 28.5em;
+}
+.rich-text-output .ql-align-center {
+    text-align: center;
+}
+.rich-text-output .ql-align-justify {
+    text-align: justify;
+}
+.rich-text-output .ql-align-right {
+    text-align: right;
+}
+
+.rich-text-output ol li.ql-indent-1 {
+    counter-increment: list-1;
+}
+.rich-text-output ol li.ql-indent-1:before {
+    content: counter(list-1, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-1 {
+    counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-2 {
+    counter-increment: list-2;
+}
+.rich-text-output ol li.ql-indent-2:before {
+    content: counter(list-2, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-2 {
+    counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-3 {
+    counter-increment: list-3;
+}
+.rich-text-output ol li.ql-indent-3:before {
+    content: counter(list-3, decimal) ". ";
+}
+.rich-text-output ol li.ql-indent-3 {
+    counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-4 {
+    counter-increment: list-4;
+}
+.rich-text-output ol li.ql-indent-4:before {
+    content: counter(list-4, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-4 {
+    counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-5 {
+    counter-increment: list-5;
+}
+.rich-text-output ol li.ql-indent-5:before {
+    content: counter(list-5, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-5 {
+    counter-reset: list-6 list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-6 {
+    counter-increment: list-6;
+}
+.rich-text-output ol li.ql-indent-6:before {
+    content: counter(list-6, decimal) ". ";
+}
+.rich-text-output ol li.ql-indent-6 {
+    counter-reset: list-7 list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-7 {
+    counter-increment: list-7;
+}
+.rich-text-output ol li.ql-indent-7:before {
+    content: counter(list-7, lower-alpha) ". ";
+}
+.rich-text-output ol li.ql-indent-7 {
+    counter-reset: list-8 list-9;
+}
+.rich-text-output ol li.ql-indent-8 {
+    counter-increment: list-8;
+}
+.rich-text-output ol li.ql-indent-8:before {
+    content: counter(list-8, lower-roman) ". ";
+}
+.rich-text-output ol li.ql-indent-8 {
+    counter-reset: list-9;
+}
+.rich-text-output ol li.ql-indent-9 {
+    counter-increment: list-9;
+}
+.rich-text-output ol li.ql-indent-9:before {
+    content: counter(list-9, decimal) ". ";
+}
+.rich-text-output .ql-indent-1:not(.ql-direction-rtl) {
+    padding-left: 3em;
+}
+.rich-text-output li.ql-indent-1:not(.ql-direction-rtl) {
+    padding-left: 4.5em;
+}
+.rich-text-output .ql-indent-1.ql-direction-rtl.ql-align-right {
+    padding-right: 3em;
+}
+.rich-text-output li.ql-indent-1.ql-direction-rtl.ql-align-right {
+    padding-right: 4.5em;
+}
+.rich-text-output .ql-indent-2:not(.ql-direction-rtl) {
+    padding-left: 6em;
+}
+.rich-text-output li.ql-indent-2:not(.ql-direction-rtl) {
+    padding-left: 7.5em;
+}
+.rich-text-output .ql-indent-2.ql-direction-rtl.ql-align-right {
+    padding-right: 6em;
+}
+.rich-text-output li.ql-indent-2.ql-direction-rtl.ql-align-right {
+    padding-right: 7.5em;
+}
+.rich-text-output .ql-indent-3:not(.ql-direction-rtl) {
+    padding-left: 9em;
+}
+.rich-text-output li.ql-indent-3:not(.ql-direction-rtl) {
+    padding-left: 10.5em;
+}
+.rich-text-output .ql-indent-3.ql-direction-rtl.ql-align-right {
+    padding-right: 9em;
+}
+.rich-text-output li.ql-indent-3.ql-direction-rtl.ql-align-right {
+    padding-right: 10.5em;
+}
+.rich-text-output .ql-indent-4:not(.ql-direction-rtl) {
+    padding-left: 12em;
+}
+.rich-text-output li.ql-indent-4:not(.ql-direction-rtl) {
+    padding-left: 13.5em;
+}
+.rich-text-output .ql-indent-4.ql-direction-rtl.ql-align-right {
+    padding-right: 12em;
+}
+.rich-text-output li.ql-indent-4.ql-direction-rtl.ql-align-right {
+    padding-right: 13.5em;
+}
+.rich-text-output .ql-indent-5:not(.ql-direction-rtl) {
+    padding-left: 15em;
+}
+.rich-text-output li.ql-indent-5:not(.ql-direction-rtl) {
+    padding-left: 16.5em;
+}
+.rich-text-output .ql-indent-5.ql-direction-rtl.ql-align-right {
+    padding-right: 15em;
+}
+.rich-text-output li.ql-indent-5.ql-direction-rtl.ql-align-right {
+    padding-right: 16.5em;
+}
+.rich-text-output .ql-indent-6:not(.ql-direction-rtl) {
+    padding-left: 18em;
+}
+.rich-text-output li.ql-indent-6:not(.ql-direction-rtl) {
+    padding-left: 19.5em;
+}
+.rich-text-output .ql-indent-6.ql-direction-rtl.ql-align-right {
+    padding-right: 18em;
+}
+.rich-text-output li.ql-indent-6.ql-direction-rtl.ql-align-right {
+    padding-right: 19.5em;
+}
+.rich-text-output .ql-indent-7:not(.ql-direction-rtl) {
+    padding-left: 21em;
+}
+.rich-text-output li.ql-indent-7:not(.ql-direction-rtl) {
+    padding-left: 22.5em;
+}
+.rich-text-output .ql-indent-7.ql-direction-rtl.ql-align-right {
+    padding-right: 21em;
+}
+.rich-text-output li.ql-indent-7.ql-direction-rtl.ql-align-right {
+    padding-right: 22.5em;
+}
+.rich-text-output .ql-indent-8:not(.ql-direction-rtl) {
+    padding-left: 24em;
+}
+.rich-text-output li.ql-indent-8:not(.ql-direction-rtl) {
+    padding-left: 25.5em;
+}
+.rich-text-output .ql-indent-8.ql-direction-rtl.ql-align-right {
+    padding-right: 24em;
+}
+.rich-text-output li.ql-indent-8.ql-direction-rtl.ql-align-right {
+    padding-right: 25.5em;
+}
+.rich-text-output .ql-indent-9:not(.ql-direction-rtl) {
+    padding-left: 27em;
+}
+.rich-text-output li.ql-indent-9:not(.ql-direction-rtl) {
+    padding-left: 28.5em;
+}
+.rich-text-output .ql-indent-9.ql-direction-rtl.ql-align-right {
+    padding-right: 27em;
+}
+.rich-text-output li.ql-indent-9.ql-direction-rtl.ql-align-right {
+    padding-right: 28.5em;
+}
+
+/* Tooltip */
+#popper-arrow,
+#popper-arrow::before {
+    @apply absolute w-3 h-3 bg-inherit;
+}
+
+#popper-arrow {
+    @apply invisible;
+}
+
+#popper-arrow::before {
+    content: "";
+    @apply visible rotate-45 rounded-bl-sm;
+}
+
+.popper-tooltip[data-popper-placement^="top"] #popper-arrow {
+    @apply -bottom-1.5 left-1/2 -translate-x-1/2;
+}
+
+.popper-tooltip[data-popper-placement^="bottom"] #popper-arrow {
+    @apply -top-1.5 left-1/2 -translate-x-1/2;
+}
+
+.popper-tooltip[data-popper-placement^="left"] #popper-arrow {
+    @apply -right-1.5 top-1/2 -translate-y-1/2;
+}
+
+.popper-tooltip[data-popper-placement^="right"] #popper-arrow {
+    @apply -left-1.5 top-1/2 -translate-y-1/2;
+}
+
+/* Popper arrow placement */
+.popper-tooltip[data-popper-placement$="start"].arrow-placement-auto #popper-arrow {
+    @apply left-5 right-auto
+}
+
+.popper-tooltip[data-popper-placement$="end"].arrow-placement-auto #popper-arrow {
+    @apply right-5 left-auto
+}
+
+/* Menu focus */
+.focused {
+    @apply focus:outline focus:outline-2 focus:rounded-md focus-within:rounded-md focus-visible:rounded-md;
+}
+.focused-expandable {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:rounded-md;
+}

@@ -1,0 +1,1 @@
+export const DEFAULT_DELETED_USER_MOCK_TEXT = "DELETED";

@@ -1,0 +1,2 @@
+export const MIN_SEARCH_STRING_LENGTH = 2;
+export const MAX_SEARCH_STRING_LENGTH = 300;
